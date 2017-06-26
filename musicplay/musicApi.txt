@@ -1,0 +1,8 @@
+http://cs003.m2828.com/apis/proxy.php?val=&url1=http://mobilecdn.kugou.com/api/v3/search/hot?plat=0&count=30&url2=
+当前热门歌曲列表
+http://cs003.m2828.com/apis/proxy.php?val=&url1=http://mobilecdn.kugou.com/api/v3/search/song?keyword=' + 关键字 + '&page=1&pagesize=30&url2=
+获取搜索关键字列表，JSON.parse(data).data.info获取所选歌曲hash码
+http://cs003.m2828.com/apis/getKugouSong.php?hash="hash码"
+根据hash码搜索歌曲信息，url为歌曲地址，choricSinger为歌手名，fileName歌名全名
+`http://cs003.m2828.com/apis/getPage.php?path=/rank/info/${变量}`   调取排行榜里面的内容
+`http://cs003.m2828.com/apis/getPage.php?path=/plist/list/${变量}`   调取歌单里面的内容
