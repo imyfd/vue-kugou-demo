@@ -112,8 +112,8 @@
 				}, 200)
 			},
 			pubSlide(offS){
-				let stripOff = $('.kugou-player-strip-index').offset().left; //圆圈off
-				let barOff = $('#bar').offset().left; //进度条off
+				let stripOff = $('.kugou-player-strip-index').offset().left; 
+				let barOff = $('#bar').offset().left; 
 				let barWid = $('#bar').width();
 				let mouseOff = offS;
 				stripOff = mouseOff - barOff;
@@ -124,7 +124,7 @@
 				this.nowTime = stripOff;
 			},
 			moveSlide(event) {
-				let mouseOff = event.changedTouches[0].clientX; //鼠标off
+				let mouseOff = event.changedTouches[0].clientX; 
 				this.pubSlide(mouseOff);
 			},
 			endSlide() {
@@ -136,7 +136,7 @@
 				$('.kugou-lyrics').removeClass("redcol");
 			},
 			clickBar(event){
-				let mouseOff = event.clientX; //鼠标off
+				let mouseOff = event.clientX;
 				this.pubSlide(mouseOff);
 				this.endSlide();
 			}

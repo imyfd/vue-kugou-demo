@@ -16,10 +16,10 @@ Vue.use(VueResource)
         	pauseLogo:true,
         	mute:false,
         	sound:true,
-        	rotate:false,//图片旋转
-        	nowCur:0,//当前播放时间
-        	nowMin:0,//当前播放分
-        	nowSec:0,//当前播放秒
+        	rotate:false,
+        	nowCur:0,
+        	nowMin:0,
+        	nowSec:0,
         	finalMin:0,
         	finalSec:0
         },
@@ -104,8 +104,8 @@ Vue.use(VueResource)
 			}
 			
 		],
-		rankList:"",//装载排行榜info
-		pList:"",//歌单info
+		rankList:"",
+		pList:"",
         xgList:[
 	    {
 	      name:'周杰伦 - 不能说的秘密 (《不能说的秘密》电影插曲)',
@@ -190,7 +190,7 @@ Vue.use(VueResource)
         	changeImg(state){
 				let songBckg = $('.play-index-bg');
 				let img = state.music.imgUrl;
-				songBckg.css('background-image','url('+img+')');//修改背景需异步
+				songBckg.css('background-image','url('+img+')');
         	},
         	getsongLen(state,el){
 				let songLens = state.music.songLen;
@@ -227,8 +227,8 @@ Vue.use(VueResource)
 		    },
 		    setLrc(state,data){
 				let hashs = state.music.hash;
-				var arr = new Array();//歌词数组
-				var arrs = new Array();//时间数组
+				var arr = new Array();
+				var arrs = new Array();
 				
 				let datas = data;
 				
@@ -239,7 +239,7 @@ Vue.use(VueResource)
 					lrcstrs = datas.split("\r\n");
 					for (let i=0;i<Timestrs.length ;i++ ) 
 					{ 
-						let time=Timestrs[i].substring(2,6); //分割后的字符输出 
+						let time=Timestrs[i].substring(2,6); 
 						let min=parseInt(time.substring(0,1));
 						let sec = parseInt(time.substr(2,3));
 						if(min>0){
@@ -251,7 +251,7 @@ Vue.use(VueResource)
 					
 					for (let i=0;i<lrcstrs.length;i++ )
 					{ 
-						var songLrcs=lrcstrs[i].substring(10); //分割后的字符输出 
+						var songLrcs=lrcstrs[i].substring(10); 
 						arr.push(songLrcs);
 					};//歌词输出
 					let lastLrc = "......";
@@ -266,12 +266,10 @@ Vue.use(VueResource)
 			    	for(let idx=0;idx<timeArr.length;idx++){
 			    		if(timeArr[idx] > curTime){
 			    			state.lrc.marginCur = idx-1;
-//				    			lrcEl.find('span').eq(idx-1).addClass("redcol");
-//				    			lrcEl.find('span').eq(idx-2).removeClass("redcol");
 			    			break;
 			    		}
 			    	};
-			    },500);//歌词滚动	
+			    },500);
 			    
 				
 		    }
@@ -314,11 +312,7 @@ Vue.use(VueResource)
 				},1000);
 				var eles = document.getElementById("audioPlay");
 		       	commit('getsongLen',eles);
-//		       	state.lrc.finalMins = state.playState.finalMin;
-//		       	state.lrc.finalSecs = state.playState.finalSec;
-				//当前时间
 				
-//				//进度条
 				setInterval(()=>{
 					let allSec = state.music.songLen;
 	       			state.lrc.bar = parseInt(parseInt(eles.currentTime)/allSec*100);
@@ -342,7 +336,6 @@ Vue.use(VueResource)
 		        localStorage.setItem('index',state.music.preSongidx);
 		    };
 		    let hash=songList[state.music.preSongidx].hash;
-		    console.log(songList);
 		    dispatch('getSong',hash);
 		    dispatch('getLrc',hash);
 			let eles = document.getElementById("audioPlay");
@@ -404,7 +397,6 @@ Vue.use(VueResource)
 				}
 			};
 			state.music.hty = res;
-			console.log(state.music.hty);
 			    
 			if(state.music.hty.length > 20){
 				let hty = state.music.hty;
@@ -413,7 +405,6 @@ Vue.use(VueResource)
 			
 			let obj={'hash':hash,'name':name};
 			state.music.hty.push(obj);
-			console.log(state.music.hty);
 			
 			dispatch('deleteSameobj',state.music.hty);
 			localStorage.setItem('historyArr',JSON.stringify(state.music.hty));

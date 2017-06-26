@@ -84,7 +84,6 @@
 			goBack() {
 				history.go(-1);
 			}
-			//用hash获取歌曲信息
 
 		},
 		mounted() {
@@ -95,7 +94,7 @@
 				let ff = (res.data).data.info;
 				that.hotList = ff;
 			})
-		} //调用热门歌曲
+		} 
 	}
 </script>
 
