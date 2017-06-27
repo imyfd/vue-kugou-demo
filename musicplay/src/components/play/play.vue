@@ -6,7 +6,6 @@
 	    </router-link>
     </keep-alive>	
     
-    <!--<img :src="$store.state.music.imgUrl" class="gs-img" alt="">-->
     <div class="song-value">	
 	    <span style="margin-top: 0.8rem;">{{$store.state.music.name}}</span><br />
 	    <span>{{$store.state.music.song}}</span>
@@ -17,7 +16,7 @@
         <img src="./play_icon.png" alt="" class="pause" v-if="$store.state.playState.playLogo" @click="play()">
      	<img src="./next_icon.png" alt="" class="next" @click="next()">
     </div>
-      <audio id="audioPlay" :src="$store.state.music.songUrl" controls="controls" loop="loop" autoplay="autoplay" hidden>亲 您的浏览器不支持html5的audio标签</audio>
+      <audio id="audioPlay" :src="$store.state.music.songUrl" controls="controls" loop="loop" autoplay="autoplay" hidden></audio>
 	</div>
 </template>
 
@@ -79,7 +78,6 @@
 			}
 		},
 		mounted(){
-			//自动加载localStroage
 			let hashs = localStorage.getItem('msg');
 			let idx = localStorage.getItem('index');
 			let playItem = JSON.parse(localStorage.getItem('playItem'));
@@ -102,7 +100,7 @@
 					audios.autoplay=false;
 				}
 			}
-		}//调用热门歌曲
+		}
 	}
 </script>
 

@@ -136,7 +136,7 @@
 				$('.kugou-lyrics').removeClass("redcol");
 			},
 			clickBar(event){
-				let mouseOff = event.clientX;
+				let mouseOff = event.clientX; 
 				this.pubSlide(mouseOff);
 				this.endSlide();
 			}
