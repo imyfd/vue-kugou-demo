@@ -6,9 +6,12 @@
 # 技术采用
 vue2+vuex+vue-router+webpack+es6+vue-resource
 # 项目运行
-cd musicplay/npm i
-npm run dev
+cd musicplay    
+npm i      
+npm run dev         
 访问 http://localhost:8080/#/
 # 最后说明
 这个项目希望可以帮助很多从0开始学习vue的人帮助，如果你觉得还不错，希望给个"STAR"，
 谢谢~~
+# 项目预览
+<img src="jietu/jietu1.png">
