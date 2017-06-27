@@ -239,7 +239,7 @@ Vue.use(VueResource)
 					lrcstrs = datas.split("\r\n");
 					for (let i=0;i<Timestrs.length ;i++ ) 
 					{ 
-						let time=Timestrs[i].substring(2,6); //分割后的字符输出 
+						let time=Timestrs[i].substring(2,6); 
 						let min=parseInt(time.substring(0,1));
 						let sec = parseInt(time.substr(2,3));
 						if(min>0){
@@ -251,7 +251,7 @@ Vue.use(VueResource)
 					
 					for (let i=0;i<lrcstrs.length;i++ )
 					{ 
-						var songLrcs=lrcstrs[i].substring(10); //分割后的字符输出 
+						var songLrcs=lrcstrs[i].substring(10); 
 						arr.push(songLrcs);
 					};
 					let lastLrc = "......";
@@ -269,7 +269,7 @@ Vue.use(VueResource)
 			    			break;
 			    		}
 			    	};
-			    },500);
+			    },500);	
 			    
 				
 		    }
@@ -311,7 +311,7 @@ Vue.use(VueResource)
 			    	state.lrc.songTime=timeArr;
 				},1000);
 				var eles = document.getElementById("audioPlay");
-				
+		       	commit('getsongLen',eles);
 				setInterval(()=>{
 					let allSec = state.music.songLen;
 	       			state.lrc.bar = parseInt(parseInt(eles.currentTime)/allSec*100);
