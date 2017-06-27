@@ -17,6 +17,4 @@ npm run dev   </br>
 <img src="jietu/jietu1.png">
 <img src="jietu/jietu2.png">
 <img src="jietu/jietu3.png">
-<img src="jietu/jietu4.png">
-<img src="jietu/jietu5.png">
 <img src="jietu/jietu6.png">
