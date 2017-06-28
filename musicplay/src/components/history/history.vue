@@ -55,7 +55,7 @@
 	.clear{
 		position: absolute;
 		top: 0.4rem;
-		right: 0.5rem;
+		right: 0.4rem;
 		border-radius: 4rem;
 		background-color: #fff;
 		border: 0;
