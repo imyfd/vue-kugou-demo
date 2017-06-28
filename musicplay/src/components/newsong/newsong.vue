@@ -69,7 +69,6 @@
 			    return res
 			},
 			play(hash,idx,name){
-				this.$indicator.open('加载中...');
 				localStorage.setItem('msg',hash);
 				localStorage.setItem('index',idx);
 				localStorage.setItem('playItem',JSON.stringify(this.$store.state.xgList));
