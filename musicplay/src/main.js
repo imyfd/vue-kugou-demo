@@ -9,10 +9,13 @@ import $ from 'jquery'
 import Vuex from 'vuex'
 import store from './store/store'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css'
 
 Vue.use(Vuex)
 Vue.use(VueResource)
 Vue.use(VueAwesomeSwiper)
+Vue.use(Mint);
 
 Vue.config.productionTip = false
 

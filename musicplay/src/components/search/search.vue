@@ -31,6 +31,7 @@
 <script>
 	import { INIT, PLAY_AUDIO } from '../../mixins'
 	import { mapGetters } from 'vuex'
+	import { Indicator } from 'mint-ui'
 
 	export default {
 		data() {
@@ -46,6 +47,10 @@
 		},
 		methods: {
 			forSearch(val) {
+				Indicator.open({
+		          text: '已经很努力的加载了...',
+		          spinnerType: 'fading-circle'
+		        });
 				if(val == "") {
 					return
 				};
@@ -58,6 +63,7 @@
 					let datas = res.data.data.info;
 					this.searchList = datas;
 					this.searchTitle = "共搜到" + datas.length + "条结果";
+          			Indicator.close();
 				});
 				this.hotSeen = false;
 				this.searchSeen = true;
@@ -88,13 +94,20 @@
 
 		},
 		mounted() {
+			Indicator.open({
+		          text: '已经很努力的加载了...',
+		          spinnerType: 'fading-circle'
+		    });
 			let that = this;
 			this.$http.get('http://cs003.m2828.com/apis/proxy.php?val=&url1=http://mobilecdn.kugou.com/api/v3/search/hot?plat=0&count=30&url2=', {
 
 			}).then(function(res) {
 				let ff = (res.data).data.info;
 				that.hotList = ff;
+          		Indicator.close();
 			})
+			
+          	console.log('ooo');
 		} //调用热门歌曲
 	}
 </script>

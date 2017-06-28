@@ -269,7 +269,7 @@ Vue.use(VueResource)
 			    			break;
 			    		}
 			    	};
-			    },500);	
+			    },500);//歌词滚动	
 			    
 				
 		    }
@@ -312,6 +312,7 @@ Vue.use(VueResource)
 				},1000);
 				var eles = document.getElementById("audioPlay");
 		       	commit('getsongLen',eles);
+		       	
 				setInterval(()=>{
 					let allSec = state.music.songLen;
 	       			state.lrc.bar = parseInt(parseInt(eles.currentTime)/allSec*100);

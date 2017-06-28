@@ -20,6 +20,8 @@
 </template>
 
 <script>
+	import { Indicator } from 'mint-ui'
+	
 	export default {
 	name: 'singerdetail',
 	data() {
@@ -56,9 +58,14 @@
 		},
 		
 		getData(){
+			Indicator.open({
+		          text: '已经很努力的加载了...',
+		          spinnerType: 'snake'
+		    });
 			this.infoID = this.$route.params.id;
 			this.$http.get(`http://cs003.m2828.com/apis/getPage.php?path=/singer/info/${this.infoID}`).then((res) => {
 				this.setData(res.data);
+				Indicator.close();
 			});
 		},
 		setData(data){

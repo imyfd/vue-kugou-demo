@@ -23,6 +23,7 @@
 </template>
 
 <script>
+	import { Indicator } from 'mint-ui'
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	var pic1 =  require('@/assets/music1.jpg');
 	var pic2 =  require('@/assets/music2.jpg');
@@ -68,6 +69,7 @@
 			    return res
 			},
 			play(hash,idx,name){
+				this.$indicator.open('加载中...');
 				localStorage.setItem('msg',hash);
 				localStorage.setItem('index',idx);
 				localStorage.setItem('playItem',JSON.stringify(this.$store.state.xgList));
