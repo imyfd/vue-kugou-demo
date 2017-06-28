@@ -1,6 +1,9 @@
 <template>
 	<div class="kugou-xg">
-		<div style="font-size: 1.2rem; line-height: 3rem; height: 3rem;">最近播放列表</div> 
+		<div style="font-size: 1.2rem; line-height: 3rem; height: 3rem;position: relative;">
+			最近播放列表
+			<button class="clear" type="button" @click="clearHistory()">清除历史记录</button>
+		</div> 
 		<ul>
 			<li v-for="(item,index) in $store.state.music.hty" @click="play(item.hash,index)">{{item.name}}</li>
 		</ul>
@@ -31,15 +34,34 @@
 	       		this.$store.dispatch('runRotate');
 	       		let audios = document.getElementById('audioPlay');
 	       		audios.autoplay=true;
+			},
+			clearHistory(){
+				localStorage.setItem('historyArr','');
+				this.$store.state.music.hty = [];
+			},
+			setHistory(){
+				let obj = JSON.parse(localStorage.getItem('historyArr'));
+				obj.reverse();
+				this.$store.state.music.hty = obj;
 			}
 		},
 		mounted(){
-			let obj = JSON.parse(localStorage.getItem('historyArr'));
-			obj.reverse();
-			this.$store.state.music.hty = obj;
+			this.setHistory();
 		}
 	}
 </script>
 
 <style>
+	.clear{
+		position: absolute;
+		top: 0.4rem;
+		right: 0.4rem;
+		border-radius: 4rem;
+		background-color: #fff;
+		border: 0;
+		padding: 0.4rem 0.8rem;
+		background-color: #2CA2F9;
+		color: #fff;
+		font-size:0.8rem;
+	}
 </style>
